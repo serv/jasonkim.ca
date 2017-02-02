@@ -1,0 +1,14 @@
+{
+  "name": "jasonkim.ca",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": {},
+  "license": "MIT",
+  "scripts": {
+    "start": "node_modules/http-server/bin/http-server"
+  },
+  "devDependencies": {
+    "http-server": "^0.9.0",
+    "webpack": "2.2"
+  }
+}
