@@ -11,6 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel='stylesheet' type='text/css' media='screen' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css' />
+    <link rel='stylesheet' type='text/css' href='bower_components/gapless5/gapless5.css' />
+
     <style>
 
       body {
@@ -63,10 +65,6 @@
   </head>
   <body>
 
-    <audio class='odio' autoplay loop>
-      <source src='audio/pl_sample1.mp3' type='audio/mp3'>
-      <source src='audio/pl_sample1.ogg' type='audio/ogg'>
-    </audio>
 
     <div class='content'>
       <div class='item'>
@@ -83,23 +81,24 @@
           <li>
             Projects
             <ul>
-              <li><a href='http://jasonkim.ca/projects/just_enough_ruby_to_get_by/'>Book: Juspt Enough Ruby to Get By</a></li>
+              <li><a href='http://jasonkim.ca/projects/just_enough_ruby_to_get_by/'>Book: Just Enough Ruby to Get By</a></li>
               <li><a href='https://github.com/Napster/napster-ruby'>Napster Gem</a></li>
             </ul>
           </li>
         </ul>
       </div>
       <div class='item'>
-        <div class='odio-controls'>
-          <a class='odio-controls-mute' href='#mute'>Mute</a>
-          <a class='odio-controls-unmute' href='#'>Unmute</a>
-        </div>
+        <div id="gapless5-block"></div>
+        <p>Click play!</p>
       </div>
     </div>
 
     <div class='giphy-attribution'>
       <img src='images/PoweredBy_200px-Black_HorizText.png'>
     </div>
+
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <script src="bower_components/gapless5/gapless5.js" type="text/javascript"></script>
 
     <script type='text/javascript'>
 
@@ -111,9 +110,12 @@
         var xmlDoc;
         var response;
         var backgroundStyle;
-        var muteEl = document.getElementsByClassName('odio-controls-mute')[0];
-        var unmuteEl = document.getElementsByClassName('odio-controls-unmute')[0];
-        var audio = document.getElementsByClassName('odio')[0];
+        var player = new Gapless5('gapless5-block', {
+          tracks: ['audio/pl_sample2.mp3'],
+          loop: true,
+          useHTML5Audio: false,
+          useWebAudio: true
+        });
 
         var ajax = {
           get: function(url, callback) {
@@ -146,15 +148,6 @@
           backgroundStyle = helpers.backgroundCss(response.data.image_url);
           background.setAttribute('style', backgroundStyle);
         });
-
-        muteEl.addEventListener('click', function() {
-          audio.muted = true;
-        });
-
-        unmuteEl.addEventListener('click', function() {
-          audio.muted = false;
-        });
-
       })();
 
     </script>
