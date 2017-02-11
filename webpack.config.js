@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -37,6 +38,11 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       $: 'jquery'
+    }),
+    new UglifyJSPlugin({
+      compress: {
+        warnings: true
+      }
     })
   ]
 };
