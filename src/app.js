@@ -1,8 +1,8 @@
 const Gapless5 = require('gapless5/gapless5');
 const audioSample = require('file-loader!public/audio/pl_sample2.mp3');
 
-var GIPHYKEY = 'dc6zaTOxFJmzC';
-var GIPHYURL = 'http://api.giphy.com';
+const GIPHYKEY = 'dc6zaTOxFJmzC';
+const GIPHYURL = 'http://api.giphy.com';
 var path;
 var background;
 var xmlDoc;

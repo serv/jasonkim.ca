@@ -26,6 +26,18 @@ module.exports = {
       {
         test: require.resolve(path.join(__dirname, 'bower_components/gapless5/gapless5')),
         use: 'exports-loader?Gapless5'
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: [
+          {
+            loader: 'babel-loader',
+            query: {
+              presets: ['es2015']
+            }
+          }
+        ]
       }
     ]
   },
