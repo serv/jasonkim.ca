@@ -92,7 +92,7 @@ class App extends React.Component {
         const imageDate = info.data.photo.dates.taken.split(' ')[0];
 
         return this.setState({
-          imageSource: sizes.data.sizes.size[7].source,
+          imageSource: sizes.data.sizes.size[9].source,
           imageUrl,
           imageTitle,
           imageDate,
@@ -107,8 +107,8 @@ class App extends React.Component {
     return (
       <MuiThemeProvider theme={theme}>
         <Grid container className={classes.app}>
-          <Grid item sm={3} />
-          <Grid item sm={6} xs={12}>
+          <Grid item sm={2} />
+          <Grid item sm={8} xs={12}>
             <Grid container>
               <Grid item xs={12}>
                 <Typography
@@ -119,24 +119,24 @@ class App extends React.Component {
                 >
                   Jason Kim
                 </Typography>
-                <Grid item xs={12}>
-                  <Typography component="p" align="center" gutterBottom>
-                    Software engineer working for Coupang in Seattle, WA
-                  </Typography>
-                </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                <Typography component="p" align="center" gutterBottom>
+                  Software engineer working for Coupang in Seattle, WA
+                </Typography>
               </Grid>
             </Grid>
 
             <Grid container className={classes.photoGrid}>
               <Grid item xs={12}>
                 <Grid container>
-                  <Grid item xs>
+                  <Grid
+                    item
+                    xs
+                    style={{ display: 'flex', justifyContent: 'center' }}
+                  >
                     {this.state.imageLoading ? (
-                      <div
-                        style={{ display: 'flex', justifyContent: 'center' }}
-                      >
-                        <CircularProgress className={classes.progress} />
-                      </div>
+                      <CircularProgress className={classes.progress} />
                     ) : (
                       <a href={this.state.imageUrl}>
                         <img
@@ -216,7 +216,7 @@ class App extends React.Component {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item sm={3} />
+          <Grid item sm={2} />
         </Grid>
       </MuiThemeProvider>
     );
