@@ -15,22 +15,20 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: '"Georgia"'
   },
-  spacing: {
-    unit: 8
-  }
+  spacing: 8
 });
 
 const styles = theme => ({
   app: {
-    marginTop: theme.spacing.unit * 6
+    marginTop: theme.spacing * 6
   },
   mainImage: {
     width: 'auto',
     maxWidth: '100%'
   },
   photoGrid: {
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2
+    paddingTop: theme.spacing * 2,
+    paddingBottom: theme.spacing * 2
   },
   progress: {
     width: '100%',
@@ -114,12 +112,7 @@ class App extends React.Component {
           <Grid item sm={8} xs={12}>
             <Grid container>
               <Grid item xs={12}>
-                <Typography
-                  component="h2"
-                  variant="display2"
-                  align="center"
-                  gutterBottom
-                >
+                <Typography component="h2" align="center" gutterBottom>
                   Jason Kim
                 </Typography>
               </Grid>
