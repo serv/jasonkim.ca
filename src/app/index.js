@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
@@ -7,6 +8,8 @@ import random from 'lodash.random';
 import Typography from '@material-ui/core/Typography';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Promise from 'bluebird';
+
+import Projects from './components/projects';
 
 const theme = createMuiTheme({
   typography: {
@@ -127,94 +130,111 @@ class App extends React.Component {
               </Grid>
             </Grid>
 
-            <Grid container className={classes.photoGrid}>
-              <Grid item xs={12}>
-                <Grid container>
-                  <Grid
-                    item
-                    xs
-                    style={{ display: 'flex', justifyContent: 'center' }}
-                  >
-                    {this.state.imageLoading ? (
-                      <CircularProgress className={classes.progress} />
-                    ) : (
-                      <a href={this.state.imageUrl}>
-                        <img
-                          className={classes.mainImage}
-                          src={this.state.imageSource}
-                        />
-                      </a>
-                    )}
-                  </Grid>
-                </Grid>
+            {/* the start of the content */}
+            <Router>
+              <Switch>
+                <Route path="/">
+                  <Grid container className={classes.photoGrid}>
+                    <Grid item xs={12}>
+                      <Grid container>
+                        <Grid
+                          item
+                          xs
+                          style={{ display: 'flex', justifyContent: 'center' }}
+                        >
+                          {this.state.imageLoading ? (
+                            <CircularProgress className={classes.progress} />
+                          ) : (
+                            <a href={this.state.imageUrl}>
+                              <img
+                                className={classes.mainImage}
+                                src={this.state.imageSource}
+                              />
+                            </a>
+                          )}
+                        </Grid>
+                      </Grid>
 
-                <Grid container>
-                  <Grid item xs={8}>
-                    <Typography component="p" variant="caption" gutterBottom>
-                      {this.state.imageTitle}
-                    </Typography>
+                      <Grid container>
+                        <Grid item xs={8}>
+                          <Typography
+                            component="p"
+                            variant="caption"
+                            gutterBottom
+                          >
+                            {this.state.imageTitle}
+                          </Typography>
+                        </Grid>
+
+                        <Grid item xs={4}>
+                          <Typography
+                            component="p"
+                            variant="caption"
+                            align="right"
+                            gutterBottom
+                          >
+                            {this.state.imageDate}
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Grid>
                   </Grid>
 
-                  <Grid item xs={4}>
-                    <Typography
-                      component="p"
-                      variant="caption"
-                      align="right"
-                      gutterBottom
-                    >
-                      {this.state.imageDate}
-                    </Typography>
+                  <Grid container>
+                    <Grid item xs>
+                      <Typography
+                        component="p"
+                        variant="body1"
+                        align="center"
+                        gutterBottom
+                      >
+                        <a href="http://blog.jasonkim.ca/">Blog</a>
+                      </Typography>
+                      <Typography
+                        component="p"
+                        variant="body1"
+                        align="center"
+                        gutterBottom
+                      >
+                        <a href="https://github.com/serv/">Github</a>
+                      </Typography>
+                      <Typography
+                        component="p"
+                        variant="body1"
+                        align="center"
+                        gutterBottom
+                      >
+                        <a href="https://twitter.com/jasoki">Twitter</a>
+                      </Typography>
+                      <Typography
+                        component="p"
+                        variant="body1"
+                        align="center"
+                        gutterBottom
+                      >
+                        <a href="https://docs.google.com/document/d/1J7Cs9EtZ2SE18aZmGHgIfL2Iqx7Hi7mwroXgGvmbiqw/edit">
+                          Resume
+                        </a>
+                      </Typography>
+                      <Typography
+                        component="p"
+                        variant="body1"
+                        align="center"
+                        gutterBottom
+                      >
+                        <a href="mailto:me@jasonkim.ca">Email</a>
+                      </Typography>
+                    </Grid>
                   </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
+                </Route>
 
-            <Grid container>
-              <Grid item xs>
-                <Typography
-                  component="p"
-                  variant="body1"
-                  align="center"
-                  gutterBottom
-                >
-                  <a href="http://blog.jasonkim.ca/">Blog</a>
-                </Typography>
-                <Typography
-                  component="p"
-                  variant="body1"
-                  align="center"
-                  gutterBottom
-                >
-                  <a href="https://github.com/serv/">Github</a>
-                </Typography>
-                <Typography
-                  component="p"
-                  variant="body1"
-                  align="center"
-                  gutterBottom
-                >
-                  <a href="https://twitter.com/jasoki">Twitter</a>
-                </Typography>
-                <Typography
-                  component="p"
-                  variant="body1"
-                  align="center"
-                  gutterBottom
-                >
-                  <a href="https://docs.google.com/document/d/1J7Cs9EtZ2SE18aZmGHgIfL2Iqx7Hi7mwroXgGvmbiqw/edit">
-                    Resume
-                  </a>
-                </Typography>
-                <Typography
-                  component="p"
-                  variant="body1"
-                  align="center"
-                  gutterBottom
-                >
-                  <a href="mailto:me@jasonkim.ca">Email</a>
-                </Typography>
-              </Grid>
-            </Grid>
+                <Route path="/projects">
+                  <Projects />
+                </Route>
+              </Switch>
+            </Router>
+
+            {/* The end of the content */}
           </Grid>
           <Grid item sm={2} />
         </Grid>
