@@ -36,63 +36,62 @@ export default function Home() {
   });
 
   useEffect(() => {
-    const reqUrl = 'https://api.flickr.com/services/rest/';
-    const reqOptions = {
-      params: {
-        api_key: '1370da634d18db3220f591212d9ad319',
-        format: 'json',
-        nojsoncallback: '1',
-        method: 'flickr.people.getPublicPhotos',
-        user_id: '149839281@N05'
-      }
-    };
-
-    return axios
-      .get(reqUrl, reqOptions)
-      .then(res => {
-        const firstPhoto =
-          res.data.photos.photo[random(0, res.data.photos.photo.length)];
-        const secondReqOptions = {
-          params: {
-            method: 'flickr.photos.getSizes',
-            api_key: '1370da634d18db3220f591212d9ad319',
-            format: 'json',
-            nojsoncallback: '1',
-            photo_id: firstPhoto.id
-          }
-        };
-        const photoInfoReqOptions = {
-          params: {
-            method: 'flickr.photos.getInfo',
-            api_key: '1370da634d18db3220f591212d9ad319',
-            format: 'json',
-            nojsoncallback: '1',
-            photo_id: firstPhoto.id
-          }
-        };
-
-        return Promise.props({
-          sizes: axios.get(reqUrl, secondReqOptions),
-          info: axios.get(reqUrl, photoInfoReqOptions)
+    async function fetchData() {
+      const reqUrl = 'https://api.flickr.com/services/rest/';
+      const reqOptions = {
+        params: {
+          api_key: '1370da634d18db3220f591212d9ad319',
+          format: 'json',
+          nojsoncallback: '1',
+          method: 'flickr.people.getPublicPhotos',
+          user_id: '149839281@N05'
+        }
+      };
+      return axios
+        .get(reqUrl, reqOptions)
+        .then(res => {
+          const firstPhoto =
+            res.data.photos.photo[random(0, res.data.photos.photo.length)];
+          const secondReqOptions = {
+            params: {
+              method: 'flickr.photos.getSizes',
+              api_key: '1370da634d18db3220f591212d9ad319',
+              format: 'json',
+              nojsoncallback: '1',
+              photo_id: firstPhoto.id
+            }
+          };
+          const photoInfoReqOptions = {
+            params: {
+              method: 'flickr.photos.getInfo',
+              api_key: '1370da634d18db3220f591212d9ad319',
+              format: 'json',
+              nojsoncallback: '1',
+              photo_id: firstPhoto.id
+            }
+          };
+          return Promise.props({
+            sizes: axios.get(reqUrl, secondReqOptions),
+            info: axios.get(reqUrl, photoInfoReqOptions)
+          });
+        })
+        .then(result => {
+          const sizes = result.sizes;
+          const info = result.info;
+          const imageUrl = info.data.photo.urls.url[0]._content;
+          const imageTitle = info.data.photo.title._content;
+          const imageDate = info.data.photo.dates.taken.split(' ')[0];
+          return setImage({
+            source: sizes.data.sizes.size[9].source,
+            url: imageUrl,
+            title: imageTitle,
+            date: imageDate,
+            loading: false
+          });
         });
-      })
-      .then(result => {
-        const sizes = result.sizes;
-        const info = result.info;
-
-        const imageUrl = info.data.photo.urls.url[0]._content;
-        const imageTitle = info.data.photo.title._content;
-        const imageDate = info.data.photo.dates.taken.split(' ')[0];
-
-        return setImage({
-          source: sizes.data.sizes.size[9].source,
-          url: imageUrl,
-          title: imageTitle,
-          date: imageDate,
-          loading: false
-        });
-      });
-  });
+    }
+    fetchData();
+  }, []);
 
   return (
     <React.Fragment>
