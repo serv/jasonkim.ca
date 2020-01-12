@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
@@ -134,6 +135,9 @@ export default function Home() {
         <Grid item xs>
           <Typography component="p" variant="body1" align="center" gutterBottom>
             <a href="http://blog.jasonkim.ca/">Blog</a>
+          </Typography>
+          <Typography component="p" variant="body1" align="center" gutterBottom>
+            <Link to="/projects">Projects</Link>
           </Typography>
           <Typography component="p" variant="body1" align="center" gutterBottom>
             <a href="https://github.com/serv/">Github</a>

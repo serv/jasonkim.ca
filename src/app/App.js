@@ -16,6 +16,12 @@ const theme = {
   spacing: 8
 };
 const useStyles = makeStyles({
+  typo: {
+    fontFamily: 'Georgia, serif',
+    letterSpacing: '0.15em',
+    textDecoration: 'none',
+    color: 'grey'
+  },
   app: {
     marginTop: theme.spacing * 6
   },
@@ -39,34 +45,44 @@ export default function App() {
   return (
     <Grid container className={classes.app}>
       <Grid item sm={2} />
-      <Grid item sm={8} xs={12}>
-        <Grid container>
-          <Grid item xs={12}>
-            <Typography component="h2" align="center" gutterBottom>
-              Jason Kim
-            </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography component="p" align="center" gutterBottom>
-              Software engineer working for Coupang in Seattle, WA
-            </Typography>
-          </Grid>
-        </Grid>
 
-        {/* the start of the content */}
-        <Router>
+      <Router>
+        <Grid item sm={8} xs={12}>
+          <Grid container>
+            <Grid item xs={12}>
+              <Typography
+                variant="h2"
+                component="h2"
+                align="center"
+                gutterBottom
+              >
+                <Link className={classes.typo} to="/">
+                  Jason Kim
+                </Link>
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography component="p" align="center" gutterBottom>
+                Software engineer working for Coupang in Seattle, WA
+              </Typography>
+            </Grid>
+          </Grid>
+
+          {/* the start of the content */}
+
           <Switch>
-            <Route path="/">
-              <Home />
-            </Route>
             <Route path="/projects">
               <Projects />
             </Route>
+            <Route path="/">
+              <Home />
+            </Route>
           </Switch>
-        </Router>
 
-        {/* The end of the content */}
-      </Grid>
+          {/* The end of the content */}
+        </Grid>
+      </Router>
+
       <Grid item sm={2} />
     </Grid>
   );
