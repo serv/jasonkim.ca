@@ -4,5 +4,11 @@
   // Enable per-language
   "[javascript]": {
     "editor.formatOnSave": true
-  }
+  },
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ]
 }
