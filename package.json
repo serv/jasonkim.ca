@@ -1,26 +1,25 @@
 {
-  "name": "jasonkim.ca",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": {},
-  "license": "MIT",
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "./node_modules/.bin/parcel src/index.html",
-    "build": "./node_modules/.bin/parcel build src/index.html"
-  },
-  "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next build && next export",
+    "start": "next start"
   },
   "dependencies": {
-    "@material-ui/core": "^4.8.3",
-    "axios": "^0.19.1",
-    "bluebird": "^3.5.2",
+    "axios": "^0.19.2",
     "lodash.random": "^3.2.0",
-    "react": "^16.12.0    ",
-    "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2"
+    "next": "9.4.4",
+    "query-string": "^6.13.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
-  "browserslist": [
-    "last 2 Chrome versions"
-  ]
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.5.2"
+  }
 }
