@@ -79,7 +79,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className="text-gray-900 pt-8 pb-4">
+        <div className="text-gray-900 pt-8 pb-6">
           <div className="name whitespace-no-wrap text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wider">
             <a className="hover:underline" href="/">
               Jason Kim
