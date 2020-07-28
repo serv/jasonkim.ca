@@ -44,9 +44,22 @@ export default function Projects() {
   });
 
   return (
-    <React.Fragment>
-      <div>Projects</div>
+    <div className="container mx-auto pb-12">
+      <div className="text-gray-900 pt-8 pb-6">
+        <div className="name whitespace-no-wrap text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wider">
+          <a className="hover:underline" href="/">
+            Jason Kim
+          </a>
+        </div>
+        <div className="blurb text-sm">
+          Software engineer working for Coupang in Seattle, WA
+        </div>
+      </div>
+
+      <div className="text-gray-900 pb-2 text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-wider">
+        Projects
+      </div>
       <div>{projectsList}</div>
-    </React.Fragment>
+    </div>
   );
 }
