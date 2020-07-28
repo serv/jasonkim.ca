@@ -106,9 +106,9 @@ export default function Home() {
           <a className="hover:underline" href="http://blog.jasonkim.ca/">
             Blog
           </a>
-          <a className="hover:underline" href="/projects">
-            Projects
-          </a>
+          <Link href="/projects">
+            <a className="hover:underline">Projects</a>
+          </Link>
           <a className="hover:underline" href="https://github.com/serv/">
             Github
           </a>
