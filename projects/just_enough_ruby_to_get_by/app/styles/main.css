@@ -1,0 +1,26 @@
+body {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: Helvetica Neue, Helvetica, Arial;
+}
+
+  div.container {
+    margin-top: 50px;
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 401px) {
+    div.sidebar {
+      position: fixed;
+      z-index: 10;
+      width: 200px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    div.content {
+      position: relative;
+      margin-left: 260px !important;
+      width: 550px !important;
+    }
+  }
