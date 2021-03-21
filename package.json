@@ -29,6 +29,7 @@
     "lodash.random": "^3.2.0",
     "normalize.css": "^8.0.1",
     "sirv-cli": "^1.0.0",
-    "svelte-loading-spinners": "^0.1.4"
+    "svelte-loading-spinners": "^0.1.4",
+    "svelte-routing": "^1.5.0"
   }
 }

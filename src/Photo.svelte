@@ -85,4 +85,7 @@
   .photo {
     text-align: center;
   }
+  .photo-desc {
+    color: #333;
+  }
 </style>
