@@ -1,25 +1,29 @@
 <script lang="ts">
+
+	import Photo from './Photo.svelte';
+
 	export let name: string;
+
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>Jason Kim</h1>
+
+	<Photo />
 </main>
 
 <style>
 	main {
-		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+		max-width: 640px;
 	}
 
 	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+		color: #191919;
+		font-size: 3em;
 	}
 
 	@media (min-width: 640px) {
@@ -27,4 +31,5 @@
 			max-width: none;
 		}
 	}
+
 </style>
