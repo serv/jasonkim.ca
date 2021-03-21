@@ -1,11 +1,11 @@
-import queryString from "query-string";
-import Head from "next/head";
-import Link from "next/link";
+import queryString from 'query-string';
+import Head from 'next/head';
+import Link from 'next/link';
 
-import { useState, useEffect } from "react";
-import random from "lodash.random";
-import Promise from "bluebird";
-import axios from "axios";
+import { useState, useEffect } from 'react';
+import random from 'lodash.random';
+import Promise from 'bluebird';
+import axios from 'axios';
 
 export default function Home() {
   const [image, setImage] = useState({
@@ -14,14 +14,14 @@ export default function Home() {
 
   useEffect(() => {
     const setupData = async () => {
-      const reqUrl = "https://api.flickr.com/services/rest/";
+      const reqUrl = 'https://api.flickr.com/services/rest/';
       const reqOptions = {
         params: {
-          api_key: "1370da634d18db3220f591212d9ad319",
-          format: "json",
-          nojsoncallback: "1",
-          method: "flickr.people.getPublicPhotos",
-          user_id: "149839281@N05"
+          api_key: '1370da634d18db3220f591212d9ad319',
+          format: 'json',
+          nojsoncallback: '1',
+          method: 'flickr.people.getPublicPhotos',
+          user_id: '149839281@N05'
         }
       };
 
@@ -32,19 +32,19 @@ export default function Home() {
       const firstPhoto = data.photos.photo[random(0, data.photos.photo.length)];
       const secondReqOptions = {
         params: {
-          method: "flickr.photos.getSizes",
-          api_key: "1370da634d18db3220f591212d9ad319",
-          format: "json",
-          nojsoncallback: "1",
+          method: 'flickr.photos.getSizes',
+          api_key: '1370da634d18db3220f591212d9ad319',
+          format: 'json',
+          nojsoncallback: '1',
           photo_id: firstPhoto.id
         }
       };
       const photoInfoReqOptions = {
         params: {
-          method: "flickr.photos.getInfo",
-          api_key: "1370da634d18db3220f591212d9ad319",
-          format: "json",
-          nojsoncallback: "1",
+          method: 'flickr.photos.getInfo',
+          api_key: '1370da634d18db3220f591212d9ad319',
+          format: 'json',
+          nojsoncallback: '1',
           photo_id: firstPhoto.id
         }
       };
@@ -58,7 +58,7 @@ export default function Home() {
       const info = res2.info;
       const imageUrl = info.data.photo.urls.url[0]._content;
       const imageTitle = info.data.photo.title._content;
-      const imageDate = info.data.photo.dates.taken.split(" ")[0];
+      const imageDate = info.data.photo.dates.taken.split(' ')[0];
       setImage({
         source: sizes.data.sizes.size[9].source,
         url: imageUrl,
@@ -72,7 +72,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto flex justify-center">
       <Head>
         <title>Jason Kim</title>
         <link rel="icon" href="/favicon.ico" />
@@ -112,8 +112,8 @@ export default function Home() {
           <a className="hover:underline" href="https://github.com/serv/">
             Github
           </a>
-          <a className="hover:underline" href="https://twitter.com/jasoki">
-            Twitter
+          <a className="hover:underline" href="https://ruby.social/@jason">
+            Mastodon
           </a>
           <a
             className="hover:underline"
