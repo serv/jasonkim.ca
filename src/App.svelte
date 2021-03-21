@@ -7,7 +7,10 @@
 </script>
 
 <main>
-	<h1>Jason Kim</h1>
+	<div class='header'>
+		<h1>Jason Kim</h1>
+		<p>Software engineer working for Coupang in Seattle, WA</p>
+	</div>
 
 	<Photo />
 </main>
@@ -21,9 +24,15 @@
 		max-width: 640px;
 	}
 
+	.header {
+		text-align: center;
+		margin-bottom: 1em;
+	}
+
 	h1 {
-		color: #191919;
+		color: #333333;
 		font-size: 3em;
+		margin-bottom: 0em;
 	}
 
 	@media (min-width: 640px) {

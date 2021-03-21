@@ -62,9 +62,27 @@
 </script>
 
 {#if loading}
-	<Jumper size="70" color="#8c8c8c" unit="px" duration="1s" class="loading"></Jumper>
+  <div class='loading'>
+    <Jumper size="70" color="#8c8c8c" unit="px" duration="1s"></Jumper>
+  </div>
 {:else}
-  <a href={url}>
-    <img src={source} />
-  </a>
+  <div class='photo'>
+    <a href={url}>
+      <img src={source} />
+    </a>
+    <div class='photo-desc'>
+      {title}<br />
+      {date}
+    </div>
+  </div>
+
 {/if}
+
+<style>
+  .loading {
+    padding-top: 3em;
+  }
+  .photo {
+    text-align: center;
+  }
+</style>
