@@ -1,31 +1,38 @@
-import React from "react";
+import React from 'react';
 
-import Project from "./Project";
-import odiobooksImg from "./images/odiobooks.png";
-import justenoughImg from "./images/justenough.png";
-import h1bImg from "./images/h1b.png";
+import Project from './Project';
+import odiobooksImg from './images/odiobooks.png';
+import justenoughImg from './images/justenough.png';
+import h1bImg from './images/h1b.png';
+import mortgageCalculator from './images/mortgage-calculator.png';
 
 const projects = [
   {
-    name: "Odiobooks",
+    name: 'Mortgage Calculator',
+    description: 'A calculator that calculates the amortization of a mortgage',
+    url: 'http://jasonkim.ca/projects/mortgage-calculator/',
+    image: mortgageCalculator
+  },
+  {
+    name: 'Odiobooks',
     description:
-      "Odiobooks allows you to listen to audiobooks and read the books at the same time.",
-    url: "https://odiobooks.com/",
+      'Odiobooks allows you to listen to audiobooks and read the books at the same time.',
+    url: 'https://odiobooks.com/',
     image: odiobooksImg
   },
   {
-    name: "H1BHub",
+    name: 'H1BHub',
     description:
-      "H1BHub is a data pipeline tool that provides you clean H1B data from 2014 to 2018 in local Postgresql database.",
-    url: "https://github.com/serv/h1bhub",
+      'H1BHub is a data pipeline tool that provides you clean H1B data from 2014 to 2018 in local Postgresql database.',
+    url: 'https://github.com/serv/h1bhub',
     image: h1bImg
   },
 
   {
-    name: "Just Enough Ruby To Get By",
+    name: 'Just Enough Ruby To Get By',
     description:
-      "Just Enough Ruby To Get By is a free programming book on Ruby.",
-    url: "http://jasonkim.ca/projects/just_enough_ruby_to_get_by/",
+      'Just Enough Ruby To Get By is a free programming book on Ruby.',
+    url: 'http://jasonkim.ca/projects/just_enough_ruby_to_get_by/',
     image: justenoughImg
   }
 ];
