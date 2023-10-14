@@ -9,7 +9,7 @@ import axios from 'axios';
 
 export default function Home() {
   const [image, setImage] = useState({
-    loading: true
+    loading: true,
   });
 
   useEffect(() => {
@@ -21,8 +21,8 @@ export default function Home() {
           format: 'json',
           nojsoncallback: '1',
           method: 'flickr.people.getPublicPhotos',
-          user_id: '149839281@N05'
-        }
+          user_id: '149839281@N05',
+        },
       };
 
       // Fetch data from external API
@@ -36,8 +36,8 @@ export default function Home() {
           api_key: '1370da634d18db3220f591212d9ad319',
           format: 'json',
           nojsoncallback: '1',
-          photo_id: firstPhoto.id
-        }
+          photo_id: firstPhoto.id,
+        },
       };
       const photoInfoReqOptions = {
         params: {
@@ -45,13 +45,13 @@ export default function Home() {
           api_key: '1370da634d18db3220f591212d9ad319',
           format: 'json',
           nojsoncallback: '1',
-          photo_id: firstPhoto.id
-        }
+          photo_id: firstPhoto.id,
+        },
       };
 
       const res2 = await Promise.props({
         sizes: axios.get(reqUrl, secondReqOptions),
-        info: axios.get(reqUrl, photoInfoReqOptions)
+        info: axios.get(reqUrl, photoInfoReqOptions),
       });
 
       const sizes = res2.sizes;
@@ -64,7 +64,7 @@ export default function Home() {
         url: imageUrl,
         title: imageTitle,
         date: imageDate,
-        loading: false
+        loading: false,
       });
     };
 
@@ -76,17 +76,14 @@ export default function Home() {
       <Head>
         <title>Jason Kim</title>
         <link rel="icon" href="/favicon.ico" />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-28018879-8"
-        />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-28018879-8" />
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
 
-              gtag('config', 'UA-28018879-8');`
+              gtag('config', 'UA-28018879-8');`,
           }}
         />
       </Head>
@@ -99,7 +96,7 @@ export default function Home() {
             </a>
           </div>
           <div className="blurb text-sm">
-            Software engineer working for Coupang in Seattle, WA
+            Software engineer working for Microsoft in Redmond, WA
           </div>
         </div>
 
