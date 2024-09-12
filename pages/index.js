@@ -76,14 +76,14 @@ export default function Home() {
       <Head>
         <title>Jason Kim</title>
         <link rel="icon" href="/favicon.ico" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-28018879-8" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8H0ES6XL5K"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-
-              gtag('config', 'UA-28018879-8');`,
+                      
+              gtag('config', 'G-8H0ES6XL5K');`,
           }}
         />
       </Head>
