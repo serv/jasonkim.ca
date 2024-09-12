@@ -19,3 +19,4 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 - `yarn run build`: creates build
 - `yarn run deploy`: deploys the *code* to [github repo only](https://github.com/serv/jasonkim.ca)
 - Copy the content of `./out` directory into AWS S3 `jasonkim.ca` bucket.
+    - No need to copy over `./out/_next` directory
