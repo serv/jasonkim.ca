@@ -122,8 +122,8 @@ export default function Home() {
           <a className="hover:underline" href="https://github.com/serv/">
             Github
           </a>
-          <a className="hover:underline" href="https://ruby.social/@jason">
-            Mastodon
+          <a className="hover:underline" href="https://x.com/_team_night">
+            X
           </a>
           <a
             className="hover:underline"
