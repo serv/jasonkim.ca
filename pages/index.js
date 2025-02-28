@@ -122,7 +122,7 @@ export default function Home() {
           <a className="hover:underline" href="https://github.com/serv/">
             Github
           </a>
-          <a className="hover:underline" href="https://x.com/_team_night">
+          <a className="hover:underline" href="https://x.com/jasoki">
             X
           </a>
           <a

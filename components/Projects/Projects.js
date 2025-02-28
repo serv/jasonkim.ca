@@ -6,9 +6,16 @@ import justenoughImg from './images/justenough.png';
 import h1bImg from './images/h1b.png';
 import mortgageCalculator from './images/mortgage-calculator.png';
 import deletelikes from './images/deletelikes.png';
+import tkdImag from './images/tkd.png';
 
-// TODO: add unlikes
 const projects = [
+  {
+    name: 'TechKwonDo',
+    description:
+      'Empower tech workers and W2 employees to stretch their dollars as much as possible.',
+    url: 'https://techkwondo.xyz/',
+    image: tkdImag,
+  },
   {
     name: 'Unlike X Tweets',
     description: 'Mass delete Likes in your Twitter profile.',
