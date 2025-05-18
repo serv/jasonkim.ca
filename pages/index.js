@@ -90,13 +90,20 @@ export default function Home() {
 
       <main>
         <div className="text-gray-900 pt-8 pb-6">
-          <div className="name whitespace-no-wrap text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wider">
-            <a className="hover:underline" href="/">
+          <div className="name whitespace-no-wrap flex items-center">
+            <a
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wider hover:underline mr-3"
+              href="/"
+            >
               Jason Kim
             </a>
+            <span className="bg-green-500 text-white px-2 py-1 rounded text-sm">Open to Work</span>
           </div>
           <div className="blurb text-sm">
-            Software engineer working for Microsoft in Redmond, WA
+            Software engineer in Seattle, WA
+            <br />
+            Previously at Microsoft, Coupang and Napster
+            <br />
           </div>
         </div>
 
