@@ -126,6 +126,9 @@ export default function Home() {
           <Link href="/projects">
             <a className="hover:underline">Projects</a>
           </Link>
+          <a className="hover:underline" href="https://www.linkedin.com/in/jason-kim-a2b97b6">
+            Linkedin
+          </a>
           <a className="hover:underline" href="https://github.com/serv/">
             Github
           </a>
